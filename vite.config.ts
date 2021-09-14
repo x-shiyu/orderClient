@@ -12,11 +12,17 @@ export default defineConfig({
     symbolId: 'icon-[dir]-[name]',
   }),],
   server: {
-    port: 8001
+    port: 8001,
+    host: '0.0.0.0'
+  },
+  css: {
+    modules: {
+      scopeBehaviour: 'local',
+    }
   },
   resolve: {
     alias: {
-      "@": './src/'
+      "@": path.resolve(process.cwd(), 'src/')
     }
   }
 })

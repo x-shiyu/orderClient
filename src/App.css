@@ -1,6 +1,66 @@
-.App {
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto;
+.app {
   height: 100vh;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.fix-b {
+  border-top: 1px solid #ddd;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #eee;
+  z-index: 200;
+}
+.keep-alive-box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.keep-alive-1 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.keep-alive-1 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+html,
+body,
+p,
+ul,
+li,
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+.fx {
+  display: flex;
+}
+
+.bgc333 {
+  background-color: #333;
+}
+.bgc444 {
+  background-color: #444;
+}
+.bgc555 {
+  background-color: #555;
+}
+.bgc666 {
+  background-color: #666;
 }

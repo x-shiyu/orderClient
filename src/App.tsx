@@ -1,69 +1,33 @@
 import React, { useState } from 'react'
-import Login from './pages/login';
 import Register from './pages/register';
-import User from './pages/user';
-import Home from './pages/home';
-import { TabBar } from 'antd-mobile';  // 加载 JS
-import 'antd-mobile/dist/antd-mobile.css';
-import Icon from './components/icon';
-
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import BaseLayout from './layout/BaseLayout';
+import { RecoilRoot, useRecoilState } from 'recoil';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css'
 
-function App() {
-  const [tabActive, setTabActive] = useState<'home' | 'user'>('home')
-
+function AppChild() {
   return (
-    <Router>
-      <div className="App">
+    <div className='app'>
+      <Router>
         <Switch>
-          <Route exact path="/">
-            <TabBar>
-              <TabBar.Item
-                title="首页"
-                key="home"
-                icon={
-                  <Icon name='home' />
-                }
-                selectedIcon={<Icon name='home-active' />}
-                selected={tabActive === 'home'}
-                onPress={() => {
-                  setTabActive('home')
-                }}
-              >
-                <Home />
-              </TabBar.Item>
-              <TabBar.Item
-                title="我的"
-                key="user"
-                icon={
-                  <Icon name='user' />
-                }
-                selectedIcon={<Icon name='user-active' />}
-                selected={tabActive === 'user'}
-                onPress={() => {
-                  setTabActive('user')
-                }}
-              >
-                <User />
-              </TabBar.Item>
-            </TabBar>
+          <Route path='/'>
+            <BaseLayout />
           </Route>
-          <Route path="/register">
+          <Route path='/register' exact>
             <Register />
           </Route>
-          <Route path="/login">
-            <Login />
+          <Route path='/login' exact>
+            <Register />
           </Route>
         </Switch>
-      </div>
-    </Router>
+      </Router>
+
+    </div>
   )
 }
 
-export default App
+export default function App() {
+  return <RecoilRoot>
+    <AppChild />
+  </RecoilRoot>
+}
