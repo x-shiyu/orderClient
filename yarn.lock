@@ -305,6 +305,11 @@
   resolved "http://npm.zhaogangren.com/@types%2fjs-cookie/-/js-cookie-2.2.7.tgz#226a9e31680835a6188e887f3988e60c04d3f6a3"
   integrity sha1-ImqeMWgINaYYjoh/OYjmDATT9qM=
 
+"@types/mockjs@^1.0.4":
+  version "1.0.4"
+  resolved "http://npm.zhaogangren.com/@types%2fmockjs/-/mockjs-1.0.4.tgz#e706951d5e33b4f0a4bb73b1f8b124e26f081de0"
+  integrity sha1-5waVHV4ztPCku3Ox+LEk4m8IHeA=
+
 "@types/node@*":
   version "16.9.0"
   resolved "http://npm.zhaogangren.com/@types%2fnode/-/node-16.9.0.tgz#d9512fe037472dcb58931ce19f837348db828a62"
@@ -637,6 +642,11 @@ colorette@^1.2.2, colorette@^1.3.0:
   version "1.4.0"
   resolved "http://npm.zhaogangren.com/colorette/-/colorette-1.4.0.tgz#5190fbb87276259a86ad700bff2c6d6faa3fca40"
   integrity sha1-UZD7uHJ2JZqGrXAL/yxtb6o/ykA=
+
+commander@*:
+  version "8.2.0"
+  resolved "http://npm.zhaogangren.com/commander/-/commander-8.2.0.tgz#37fe2bde301d87d47a53adeff8b5915db1381ca8"
+  integrity sha1-N/4r3jAdh9R6U63v+LWRXbE4HKg=
 
 commander@^7.2.0:
   version "7.2.0"
@@ -1388,6 +1398,13 @@ mixin-deep@^1.2.0:
   dependencies:
     for-in "^1.0.2"
     is-extendable "^1.0.1"
+
+mockjs@^1.1.0:
+  version "1.1.0"
+  resolved "http://npm.zhaogangren.com/mockjs/-/mockjs-1.1.0.tgz#e6a0c378e91906dbaff20911cc0273b3c7d75b06"
+  integrity sha1-5qDDeOkZBtuv8gkRzAJzs8fXWwY=
+  dependencies:
+    commander "*"
 
 moment@^2.24.0, moment@^2.25.3:
   version "2.29.1"

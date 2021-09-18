@@ -1,10 +1,13 @@
 .sideList {
   width: 300px;
-  height: 100%;
-  background-color: #444;
+  height: 100vh;
+  background-color: #333;
   position: absolute;
   top: 0;
   left: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 50px;
 }
 
 .contentBox {
@@ -14,4 +17,33 @@
   position: relative;
   box-sizing: border-box;
   height: 100vh;
+}
+
+.pageBox {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  background-color: aliceblue;
+  align-items: center;
+  width: 100%;
+}
+
+.scrollBox {
+  height: 100%;
+  width: 410px;
+  padding-right: 100px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.goodsBox {
+  position: relative;
+  padding-top: 50px;
+  height: 100vh;
+  background-color: #555;
+  min-width: 600px;
+  overflow-x: auto;
 }

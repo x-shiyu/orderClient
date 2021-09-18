@@ -26,7 +26,7 @@ export default function BaseLayout() {
 
     return (
         <div className='fx' style={{ height: '100vh' }}>
-            <aside style={{ width: 80 }} className='bgc333'>
+            <aside style={{ width: 80 }} className='bgc222'>
                 <ul className={style.sideBox}>
                     <li>
                         <section className={style.iconBox}>
