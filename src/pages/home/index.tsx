@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { DetailHeader } from "../components";
 import { useMount, useRequest } from 'ahooks'
 import style from './style.module.css'
-import { getBusiness, BusinessInfo } from './service'
+import { getCoffes, getBusiness, BusinessInfo, CoffeOrderInfo } from './service'
 import { Pagination } from "antd";
-
+import { formatCoffeList, FormattedCoffeInfo } from './utils'
+import { AddAndMin } from "./AddAndMin";
+import { useData } from "./orderHandler";
+import { addOrderInfo, addOrderAction } from "./atoms";
+import { useRecoilState } from 'recoil'
 
 const PAGESIZE = 10
 
@@ -25,12 +29,49 @@ function BusinessList({ list, activeBus, setActive }: { list: BusinessInfo[], ac
     )
 }
 
+function CoffeOrder({ data }: { data: FormattedCoffeInfo }) {
+    function CofferItem({ item }: { item: any }) {
+        const [addOrder, setAddOrder] = useRecoilState(addOrderAction(item.id))
+        return (
+            <li className={style.orderItem} key={item.id}>
+                <img src={item.thumb} width='60' height='60' />
+                <section>
+                    <h4 className='f14 cbbb'>{item.name}</h4>
+                    <p>月售{item.monthSell}</p>
+                    <p>{item.price}</p>
+                </section>
+                <div style={{ position: 'absolute', right: 0, width: 80 }}>
+                    <AddAndMin current={addOrder} setCurrent={setAddOrder} />
+                </div>
+            </li>
+        )
+    }
+    return (
+        <div id={data.categoryId as any} className='pt20'>
+            <h2 className='ceee' >{data.categoryName}</h2>
+            <ul>
+                {data.children.map(item => {
+                    return (
+                        <CofferItem item={item} key={item.id} />
+                    )
+                })}
+            </ul>
+        </div>
+    )
+}
+
 export default function Home() {
     const [business, setBusiness] = useState<BusinessInfo[]>([])
     const [current, setCurrent] = useState<number>(1)
     const [total, setTotal] = useState<number>(0)
     const [activeBus, setActiveBus] = useState<number>(-1)
+    const [coffeList, setCoffeList] = useState<FormattedCoffeInfo[]>([])
 
+    useEffect(() => {
+        getCoffes(activeBus).then((response) => {
+            setCoffeList(formatCoffeList(response.data))
+        })
+    }, [activeBus])
     const handleSearch = async (current: number) => {
         setCurrent(current)
         const { data } = await getBusiness(current)
@@ -55,9 +96,24 @@ export default function Home() {
             </div>
             <div className={style.goodsBox}>
                 <DetailHeader title='商品' />
-                <div style={{ maxWidth: 400 }}>
-
+                <div>
+                    <div className='fx-between' style={{ width: 600, margin: '0 auto' }}>
+                        <ul style={{ marginTop: 40 }}>
+                            {coffeList.map(item => (<li className='pt10' key={item.categoryId}>
+                                <a href={'#' + item.categoryId}> {item.categoryName}</a>
+                            </li>))}
+                        </ul>
+                        <div className={style.orderBox}>
+                            {coffeList.map(item => <CoffeOrder key={item.categoryId} data={item} />)}
+                        </div>
+                    </div>
                 </div>
+                <footer className={style.summaryBox}>
+                    <div className='cddd'>
+                        <span>已选{ }</span>
+                        <span>下单</span>
+                    </div>
+                </footer>
             </div>
         </main>
     )

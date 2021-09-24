@@ -5,3 +5,5 @@ export const authInfo = atom<Record<string, any>>({
     key: 'authInfo',
     default: {}
 })
+
+

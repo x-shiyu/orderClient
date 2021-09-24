@@ -55,6 +55,15 @@ ul {
 .fx {
   display: flex;
 }
+.fx-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fx-h-center {
+  align-items: center;
+}
+
 .bgc222 {
   background-color: #222;
 }
@@ -92,7 +101,9 @@ ul {
 .pr20 {
   padding-right: 20px;
 }
-
+.pt20 {
+  padding-top: 20px;
+}
 .p1020 {
   padding: 10px 20px;
 }
@@ -193,6 +204,9 @@ ul {
 .cfff {
   color: #fff;
 }
+.cbbb {
+  color: #bbb;
+}
 
 .f12 {
   font-size: 12px;
@@ -201,6 +215,9 @@ ul {
   font-size: 14px;
 }
 
+.f30 {
+  font-size: 30px;
+}
 .pointer {
   cursor: pointer;
 }
