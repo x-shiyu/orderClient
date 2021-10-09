@@ -1,4 +1,4 @@
-import { atom, selectorFamily } from 'recoil'
+import { atom, selector, selectorFamily } from 'recoil'
 
 
 export const addOrderInfo = atom<Record<string, any>>({
@@ -18,4 +18,14 @@ export const addOrderAction = selectorFamily<number | undefined, any>({
             [id]: newValue
         })
     }
+})
+
+
+export const selectedCoffeNum = selector<any>({
+    key: 'selectedCoffeNum',
+    get({ get }) {
+        const allSelected = get(addOrderInfo)
+        return Object.values(allSelected).reduce<number>((total: number, current: any) => total + current, 0) || 0
+    },
+
 })

@@ -59,3 +59,9 @@ export function getCoffes(id: number): Promise<{ data: CoffeOrderInfo[] }> {
         data: mockData
     })
 }
+
+export function submuitOrder(selected: any): Promise<any> {
+    return Promise.resolve({
+        code: 200
+    })
+}

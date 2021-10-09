@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { DetailHeader } from "../components";
-import { useMount, useRequest } from 'ahooks'
+import { useMount, usePersistFn, useRequest } from 'ahooks'
 import style from './style.module.css'
-import { getCoffes, getBusiness, BusinessInfo, CoffeOrderInfo } from './service'
-import { Pagination } from "antd";
+import { getCoffes, getBusiness, BusinessInfo, CoffeOrderInfo, submuitOrder } from './service'
+import { Button, message, Pagination } from "antd";
 import { formatCoffeList, FormattedCoffeInfo } from './utils'
 import { AddAndMin } from "./AddAndMin";
 import { useData } from "./orderHandler";
-import { addOrderInfo, addOrderAction } from "./atoms";
-import { useRecoilState } from 'recoil'
+import { addOrderAction, selectedCoffeNum, addOrderInfo } from "./atoms";
+import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil'
 
 const PAGESIZE = 10
 
@@ -40,7 +40,7 @@ function CoffeOrder({ data }: { data: FormattedCoffeInfo }) {
                     <p>月售{item.monthSell}</p>
                     <p>{item.price}</p>
                 </section>
-                <div style={{ position: 'absolute', right: 0, width: 80 }}>
+                <div style={{ position: 'absolute', right: 5, width: 80 }}>
                     <AddAndMin current={addOrder} setCurrent={setAddOrder} />
                 </div>
             </li>
@@ -66,6 +66,8 @@ export default function Home() {
     const [total, setTotal] = useState<number>(0)
     const [activeBus, setActiveBus] = useState<number>(-1)
     const [coffeList, setCoffeList] = useState<FormattedCoffeInfo[]>([])
+    const selectedNum = useRecoilValue(selectedCoffeNum)
+    const [selectedObj, setSelected] = useRecoilState(addOrderInfo)
 
     useEffect(() => {
         getCoffes(activeBus).then((response) => {
@@ -81,6 +83,13 @@ export default function Home() {
 
     useMount(() => {
         handleSearch(1)
+    })
+
+    const onSubmitOrder = usePersistFn(() => {
+        submuitOrder(selectedObj).then(() => {
+            message.success('下单成功！')
+            setSelected({})
+        })
     })
     return (
         <main className={style.contentBox}>
@@ -109,9 +118,9 @@ export default function Home() {
                     </div>
                 </div>
                 <footer className={style.summaryBox}>
-                    <div className='cddd'>
-                        <span>已选{ }</span>
-                        <span>下单</span>
+                    <div className='cddd fx fx fx-h-center pl20 fx-between pr20' style={{ height: '100%' }}>
+                        <span>已选 {selectedNum} </span>
+                        <Button disabled={selectedNum === 0} onClick={onSubmitOrder}>下单</Button>
                     </div>
                 </footer>
             </div>

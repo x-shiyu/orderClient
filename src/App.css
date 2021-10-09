@@ -95,6 +95,9 @@ ul {
 .pl10 {
   padding-left: 10px;
 }
+.pr10{
+  padding-right: 10px;
+}
 .pl8 {
   padding-left: 8px;
 }
@@ -217,6 +220,10 @@ ul {
 
 .f30 {
   font-size: 30px;
+}
+
+.f20{
+  font-size: 20px;
 }
 .pointer {
   cursor: pointer;
