@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Home from '../pages/home';
 import User from '../pages/user';
 import Order from '../pages/order';
-import { Route, Switch, useHistory } from "react-router-dom";
+import { Route, Switch, useHistory, Redirect } from "react-router-dom";
 import style from './baselayout.module.css'
 import { CoffeeOutlined, BarsOutlined, SettingOutlined } from '@ant-design/icons'
 import { useActiveTab } from "../pages/hooks";
@@ -53,7 +53,7 @@ export default function BaseLayout() {
                 <Route path='/user' exact>
                     <User />
                 </Route>
-                <Route path='*'>
+                <Route path=''>
                     <Home />
                 </Route>
             </Switch>

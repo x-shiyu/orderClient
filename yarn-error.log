@@ -1,5 +1,5 @@
 Arguments: 
-  D:\nodev14\node.exe C:\Users\yu.shi1\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js remove @types/styled-components
+  D:\nodev14\node.exe C:\Users\yu.shi1\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add @ahooksjs/use-url-state
 
 PATH: 
   C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;D:\nodev14\;D:\Git\cmd;D:\nodev14;E:\mysql-8.0.25-winx64\bin;D:\mingw64\bin;E:\TortoiseGit\bin;D:\Python3_9;D:\sqlite3;D:\miniconda;D:\miniconda\Library\mingw-w64\bin;D:\miniconda\Library\usr\bin;D:\miniconda\Library\bin;D:\miniconda\Scripts;C:\Users\yu.shi1\AppData\Local\Microsoft\WindowsApps;C:\Users\yu.shi1\AppData\Roaming\npm;D:\Microsoft VS Code\bin
@@ -14,7 +14,17 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: EPERM: operation not permitted, unlink 'E:\learn\coffeClient\node_modules\esbuild\esbuild.exe'
+  Error: http://npm.zhaogangren.com/@ahooksjs%2fuse-url-state/-/use-url-state-2.5.10.tgz: Request failed "500 Internal Server Error"
+      at ResponseError.ExtendableBuiltin (C:\Users\yu.shi1\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:696:66)
+      at new ResponseError (C:\Users\yu.shi1\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:802:124)
+      at Request.<anonymous> (C:\Users\yu.shi1\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:67058:16)
+      at Request.emit (events.js:376:20)
+      at Request.module.exports.Request.onRequestResponse (C:\Users\yu.shi1\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141539:10)
+      at ClientRequest.emit (events.js:376:20)
+      at HTTPParser.parserOnIncomingClient (_http_client.js:647:27)
+      at HTTPParser.parserOnHeadersComplete (_http_common.js:126:17)
+      at Socket.socketOnData (_http_client.js:515:22)
+      at Socket.emit (events.js:376:20)
 
 npm manifest: 
   {
@@ -26,9 +36,13 @@ npm manifest:
       "serve": "vite preview"
     },
     "dependencies": {
+      "@ahooksjs/use-url-state": "^2.5.8",
+      "@ant-design/icons": "^4.6.4",
+      "@types/mockjs": "^1.0.4",
       "@types/react-router-dom": "^5.1.8",
       "ahooks": "^2.10.9",
       "antd": "^4.16.13",
+      "mockjs": "^1.1.0",
       "react": "^17.0.0",
       "react-dom": "^17.0.0",
       "react-router-dom": "^5.3.0",
@@ -60,6 +74,14 @@ Lockfile:
       lodash.debounce "^4.0.8"
       lodash.throttle "^4.1.1"
   
+  "@ahooksjs/use-url-state@^2.5.8":
+    version "2.5.8"
+    resolved "http://npm.zhaogangren.com/@ahooksjs%2fuse-url-state/-/use-url-state-2.5.8.tgz#d05f2fe21f82dbf595824a3b9ba9de5d0a2a2462"
+    integrity sha1-0F8v4h+C2/WVgko7m6neXQoqJGI=
+    dependencies:
+      "@types/query-string" "^6.3.0"
+      query-string "^6.9.0"
+  
   "@ant-design/colors@^6.0.0":
     version "6.0.0"
     resolved "http://npm.zhaogangren.com/@ant-design%2fcolors/-/colors-6.0.0.tgz#9b9366257cffcc47db42b9d0203bb592c13c0298"
@@ -72,7 +94,7 @@ Lockfile:
     resolved "http://npm.zhaogangren.com/@ant-design%2ficons-svg/-/icons-svg-4.1.0.tgz#480b025f4b20ef7fe8f47d4a4846e4fee84ea06c"
     integrity sha1-SAsCX0sg73/o9H1KSEbk/uhOoGw=
   
-  "@ant-design/icons@^4.6.3":
+  "@ant-design/icons@^4.6.3", "@ant-design/icons@^4.6.4":
     version "4.6.4"
     resolved "http://npm.zhaogangren.com/@ant-design%2ficons/-/icons-4.6.4.tgz#21b037dbb90ee1bb7c632cca057006e57d992fd9"
     integrity sha1-IbA327kO4bt8YyzKBXAG5X2ZL9k=
@@ -136,13 +158,6 @@ Lockfile:
       jsesc "^2.5.1"
       source-map "^0.5.0"
   
-  "@babel/helper-annotate-as-pure@^7.0.0":
-    version "7.15.4"
-    resolved "http://npm.zhaogangren.com/@babel%2fhelper-annotate-as-pure/-/helper-annotate-as-pure-7.15.4.tgz#3d0e43b00c5e49fdb6c57e421601a7a658d5f835"
-    integrity sha1-PQ5DsAxeSf22xX5CFgGnpljV+DU=
-    dependencies:
-      "@babel/types" "^7.15.4"
-  
   "@babel/helper-compilation-targets@^7.15.4":
     version "7.15.4"
     resolved "http://npm.zhaogangren.com/@babel%2fhelper-compilation-targets/-/helper-compilation-targets-7.15.4.tgz#cf6d94f30fbefc139123e27dd6b02f65aeedb7b9"
@@ -183,7 +198,7 @@ Lockfile:
     dependencies:
       "@babel/types" "^7.15.4"
   
-  "@babel/helper-module-imports@^7.0.0", "@babel/helper-module-imports@^7.15.4":
+  "@babel/helper-module-imports@^7.15.4":
     version "7.15.4"
     resolved "http://npm.zhaogangren.com/@babel%2fhelper-module-imports/-/helper-module-imports-7.15.4.tgz#e18007d230632dea19b47853b984476e7b4e103f"
     integrity sha1-4YAH0jBjLeoZtHhTuYRHbntOED8=
@@ -303,7 +318,7 @@ Lockfile:
       "@babel/parser" "^7.15.4"
       "@babel/types" "^7.15.4"
   
-  "@babel/traverse@^7.15.4", "@babel/traverse@^7.4.5":
+  "@babel/traverse@^7.15.4":
     version "7.15.4"
     resolved "http://npm.zhaogangren.com/@babel%2ftraverse/-/traverse-7.15.4.tgz#ff8510367a144bfbff552d9e18e28f3e2889c22d"
     integrity sha1-/4UQNnoUS/v/VS2eGOKPPiiJwi0=
@@ -331,28 +346,6 @@ Lockfile:
     resolved "http://npm.zhaogangren.com/@ctrl%2ftinycolor/-/tinycolor-3.4.0.tgz#c3c5ae543c897caa9c2a68630bed355be5f9990f"
     integrity sha1-w8WuVDyJfKqcKmhjC+01W+X5mQ8=
   
-  "@emotion/is-prop-valid@^0.8.8":
-    version "0.8.8"
-    resolved "http://npm.zhaogangren.com/@emotion%2fis-prop-valid/-/is-prop-valid-0.8.8.tgz#db28b1c4368a259b60a97311d6a952d4fd01ac1a"
-    integrity sha1-2yixxDaKJZtgqXMR1qlS1P0BrBo=
-    dependencies:
-      "@emotion/memoize" "0.7.4"
-  
-  "@emotion/memoize@0.7.4":
-    version "0.7.4"
-    resolved "http://npm.zhaogangren.com/@emotion%2fmemoize/-/memoize-0.7.4.tgz#19bf0f5af19149111c40d98bb0cf82119f5d9eeb"
-    integrity sha1-Gb8PWvGRSREcQNmLsM+CEZ9dnus=
-  
-  "@emotion/stylis@^0.8.4":
-    version "0.8.5"
-    resolved "http://npm.zhaogangren.com/@emotion%2fstylis/-/stylis-0.8.5.tgz#deacb389bd6ee77d1e7fcaccce9e16c5c7e78e04"
-    integrity sha1-3qyzib1u530ef8rMzp4WxcfnjgQ=
-  
-  "@emotion/unitless@^0.7.4":
-    version "0.7.5"
-    resolved "http://npm.zhaogangren.com/@emotion%2funitless/-/unitless-0.7.5.tgz#77211291c1900a700b8a78cfafda3160d76949ed"
-    integrity sha1-dyESkcGQCnALinjPr9oxYNdpSe0=
-  
   "@rollup/pluginutils@^4.1.1":
     version "4.1.1"
     resolved "http://npm.zhaogangren.com/@rollup%2fpluginutils/-/pluginutils-4.1.1.tgz#1d4da86dd4eded15656a57d933fda2b9a08d47ec"
@@ -371,18 +364,15 @@ Lockfile:
     resolved "http://npm.zhaogangren.com/@types%2fhistory/-/history-4.7.9.tgz#1cfb6d60ef3822c589f18e70f8b12f9a28ce8724"
     integrity sha1-HPttYO84IsWJ8Y5w+LEvmijOhyQ=
   
-  "@types/hoist-non-react-statics@*":
-    version "3.3.1"
-    resolved "http://npm.zhaogangren.com/@types%2fhoist-non-react-statics/-/hoist-non-react-statics-3.3.1.tgz#1124aafe5118cb591977aeb1ceaaed1070eb039f"
-    integrity sha1-ESSq/lEYy1kZd66xzqrtEHDrA58=
-    dependencies:
-      "@types/react" "*"
-      hoist-non-react-statics "^3.3.0"
-  
   "@types/js-cookie@^2.2.6":
     version "2.2.7"
     resolved "http://npm.zhaogangren.com/@types%2fjs-cookie/-/js-cookie-2.2.7.tgz#226a9e31680835a6188e887f3988e60c04d3f6a3"
     integrity sha1-ImqeMWgINaYYjoh/OYjmDATT9qM=
+  
+  "@types/mockjs@^1.0.4":
+    version "1.0.4"
+    resolved "http://npm.zhaogangren.com/@types%2fmockjs/-/mockjs-1.0.4.tgz#e706951d5e33b4f0a4bb73b1f8b124e26f081de0"
+    integrity sha1-5waVHV4ztPCku3Ox+LEk4m8IHeA=
   
   "@types/node@*":
     version "16.9.0"
@@ -393,6 +383,13 @@ Lockfile:
     version "15.7.4"
     resolved "http://npm.zhaogangren.com/@types%2fprop-types/-/prop-types-15.7.4.tgz#fcf7205c25dff795ee79af1e30da2c9790808f11"
     integrity sha1-/PcgXCXf95Xuea8eMNosl5CAjxE=
+  
+  "@types/query-string@^6.3.0":
+    version "6.3.0"
+    resolved "http://npm.zhaogangren.com/@types%2fquery-string/-/query-string-6.3.0.tgz#b6fa172a01405abcaedac681118e78429d62ea39"
+    integrity sha1-tvoXKgFAWryu2saBEY54Qp1i6jk=
+    dependencies:
+      query-string "*"
   
   "@types/react-dom@^17.0.0":
     version "17.0.9"
@@ -431,15 +428,6 @@ Lockfile:
     version "0.16.2"
     resolved "http://npm.zhaogangren.com/@types%2fscheduler/-/scheduler-0.16.2.tgz#1a62f89525723dde24ba1b01b092bf5df8ad4d39"
     integrity sha1-GmL4lSVyPd4kuhsBsJK/XfitTTk=
-  
-  "@types/styled-components@^5.1.14":
-    version "5.1.14"
-    resolved "http://npm.zhaogangren.com/@types%2fstyled-components/-/styled-components-5.1.14.tgz#e9cf8cdb5eef9d139628183a84c083f630635d67"
-    integrity sha1-6c+M217vnROWKBg6hMCD9jBjXWc=
-    dependencies:
-      "@types/hoist-non-react-statics" "*"
-      "@types/react" "*"
-      csstype "^3.0.2"
   
   "@types/svgo@^2.3.1":
     version "2.4.1"
@@ -579,21 +567,6 @@ Lockfile:
     resolved "http://npm.zhaogangren.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
     integrity sha1-bZUX654DDSQ2ZmZR6GvZ9vE1M8k=
   
-  "babel-plugin-styled-components@>= 1.12.0":
-    version "1.13.2"
-    resolved "http://npm.zhaogangren.com/babel-plugin-styled-components/-/babel-plugin-styled-components-1.13.2.tgz#ebe0e6deff51d7f93fceda1819e9b96aeb88278d"
-    integrity sha1-6+Dm3v9R1/k/ztoYGem5auuIJ40=
-    dependencies:
-      "@babel/helper-annotate-as-pure" "^7.0.0"
-      "@babel/helper-module-imports" "^7.0.0"
-      babel-plugin-syntax-jsx "^6.18.0"
-      lodash "^4.17.11"
-  
-  babel-plugin-syntax-jsx@^6.18.0:
-    version "6.18.0"
-    resolved "http://npm.zhaogangren.com/babel-plugin-syntax-jsx/-/babel-plugin-syntax-jsx-6.18.0.tgz#0af32a9a6e13ca7a3fd5069e62d7b0f58d0d8946"
-    integrity sha1-CvMqmm4Tyno/1QaeYtew9Y0NiUY=
-  
   base@^0.11.1:
     version "0.11.2"
     resolved "http://npm.zhaogangren.com/base/-/base-0.11.2.tgz#7bde5ced145b6d551a90db87f83c558b4eb48a8f"
@@ -663,11 +636,6 @@ Lockfile:
       to-object-path "^0.3.0"
       union-value "^1.0.0"
       unset-value "^1.0.0"
-  
-  camelize@^1.0.0:
-    version "1.0.0"
-    resolved "http://npm.zhaogangren.com/camelize/-/camelize-1.0.0.tgz#164a5483e630fa4321e5af07020e531831b2609b"
-    integrity sha1-FkpUg+Yw+kMh5a8HAg5TGDGyYJs=
   
   caniuse-lite@^1.0.30001254:
     version "1.0.30001255"
@@ -739,6 +707,11 @@ Lockfile:
     resolved "http://npm.zhaogangren.com/colorette/-/colorette-1.4.0.tgz#5190fbb87276259a86ad700bff2c6d6faa3fca40"
     integrity sha1-UZD7uHJ2JZqGrXAL/yxtb6o/ykA=
   
+  commander@*:
+    version "8.2.0"
+    resolved "http://npm.zhaogangren.com/commander/-/commander-8.2.0.tgz#37fe2bde301d87d47a53adeff8b5915db1381ca8"
+    integrity sha1-N/4r3jAdh9R6U63v+LWRXbE4HKg=
+  
   commander@^7.2.0:
     version "7.2.0"
     resolved "http://npm.zhaogangren.com/commander/-/commander-7.2.0.tgz#a36cb57d0b501ce108e4d20559a150a391d97ab7"
@@ -781,11 +754,6 @@ Lockfile:
       object-assign "^4"
       vary "^1"
   
-  css-color-keywords@^1.0.0:
-    version "1.0.0"
-    resolved "http://npm.zhaogangren.com/css-color-keywords/-/css-color-keywords-1.0.0.tgz#fea2616dc676b2962686b3af8dbdbe180b244e05"
-    integrity sha1-/qJhbcZ2spYmhrOvjb2+GAskTgU=
-  
   css-select@^4.1.3:
     version "4.1.3"
     resolved "http://npm.zhaogangren.com/css-select/-/css-select-4.1.3.tgz#a70440f70317f2669118ad74ff105e65849c7067"
@@ -796,15 +764,6 @@ Lockfile:
       domhandler "^4.2.0"
       domutils "^2.6.0"
       nth-check "^2.0.0"
-  
-  css-to-react-native@^3.0.0:
-    version "3.0.0"
-    resolved "http://npm.zhaogangren.com/css-to-react-native/-/css-to-react-native-3.0.0.tgz#62dbe678072a824a689bcfee011fc96e02a7d756"
-    integrity sha1-YtvmeAcqgkpom8/uAR/JbgKn11Y=
-    dependencies:
-      camelize "^1.0.0"
-      css-color-keywords "^1.0.0"
-      postcss-value-parser "^4.0.2"
   
   css-tree@^1.1.2, css-tree@^1.1.3:
     version "1.1.3"
@@ -1047,6 +1006,11 @@ Lockfile:
       repeat-string "^1.6.1"
       to-regex-range "^2.1.0"
   
+  filter-obj@^1.1.0:
+    version "1.1.0"
+    resolved "http://npm.zhaogangren.com/filter-obj/-/filter-obj-1.1.0.tgz#9b311112bc6c6127a16e016c6c5d7f19e0805c5b"
+    integrity sha1-mzERErxsYSehbgFsbF1/GeCAXFs=
+  
   for-in@^1.0.2:
     version "1.0.2"
     resolved "http://npm.zhaogangren.com/for-in/-/for-in-1.0.2.tgz#81068d295a8142ec0ac726c6e2200c30fb6d5e80"
@@ -1175,7 +1139,7 @@ Lockfile:
       tiny-warning "^1.0.0"
       value-equal "^1.0.1"
   
-  hoist-non-react-statics@^3.0.0, hoist-non-react-statics@^3.1.0, hoist-non-react-statics@^3.3.0:
+  hoist-non-react-statics@^3.1.0:
     version "3.3.2"
     resolved "http://npm.zhaogangren.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz#ece0acaf71d62c2969c2ec59feff42a4b1a85b45"
     integrity sha1-7OCsr3HWLClpwuxZ/v9CpLGoW0U=
@@ -1423,7 +1387,7 @@ Lockfile:
     resolved "http://npm.zhaogangren.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
     integrity sha1-wj6RtxAkKscMN/HhzaknTMOb8vQ=
   
-  lodash@^4.17.11, lodash@^4.17.21:
+  lodash@^4.17.21:
     version "4.17.21"
     resolved "http://npm.zhaogangren.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
     integrity sha1-Z5WRxWTDv/quhFTPCz3zcMPWkRw=
@@ -1498,6 +1462,13 @@ Lockfile:
     dependencies:
       for-in "^1.0.2"
       is-extendable "^1.0.1"
+  
+  mockjs@^1.1.0:
+    version "1.1.0"
+    resolved "http://npm.zhaogangren.com/mockjs/-/mockjs-1.1.0.tgz#e6a0c378e91906dbaff20911cc0273b3c7d75b06"
+    integrity sha1-5qDDeOkZBtuv8gkRzAJzs8fXWwY=
+    dependencies:
+      commander "*"
   
   moment@^2.24.0, moment@^2.25.3:
     version "2.29.1"
@@ -1610,11 +1581,6 @@ Lockfile:
     dependencies:
       postcss "^8.3.6"
   
-  postcss-value-parser@^4.0.2:
-    version "4.1.0"
-    resolved "http://npm.zhaogangren.com/postcss-value-parser/-/postcss-value-parser-4.1.0.tgz#443f6a20ced6481a2bda4fa8532a6e55d789a2cb"
-    integrity sha1-RD9qIM7WSBor2k+oUypuVdeJoss=
-  
   postcss@^5.2.17:
     version "5.2.18"
     resolved "http://npm.zhaogangren.com/postcss/-/postcss-5.2.18.tgz#badfa1497d46244f6390f58b319830d9107853c5"
@@ -1681,6 +1647,16 @@ Lockfile:
       object-assign "^4.1.1"
       react-is "^16.8.1"
   
+  query-string@*:
+    version "7.0.1"
+    resolved "http://npm.zhaogangren.com/query-string/-/query-string-7.0.1.tgz#45bd149cf586aaa582dffc7ec7a8ad97dd02f75d"
+    integrity sha1-Rb0UnPWGqqWC3/x+x6itl90C910=
+    dependencies:
+      decode-uri-component "^0.2.0"
+      filter-obj "^1.1.0"
+      split-on-first "^1.0.0"
+      strict-uri-encode "^2.0.0"
+  
   query-string@^4.3.2:
     version "4.3.4"
     resolved "http://npm.zhaogangren.com/query-string/-/query-string-4.3.4.tgz#bbb693b9ca915c232515b228b1a02b609043dbeb"
@@ -1688,6 +1664,16 @@ Lockfile:
     dependencies:
       object-assign "^4.1.0"
       strict-uri-encode "^1.0.0"
+  
+  query-string@^6.9.0:
+    version "6.14.1"
+    resolved "http://npm.zhaogangren.com/query-string/-/query-string-6.14.1.tgz#7ac2dca46da7f309449ba0f86b1fd28255b0c86a"
+    integrity sha1-esLcpG2n8wlEm6D4ax/SglWwyGo=
+    dependencies:
+      decode-uri-component "^0.2.0"
+      filter-obj "^1.1.0"
+      split-on-first "^1.0.0"
+      strict-uri-encode "^2.0.0"
   
   rc-align@^4.0.0:
     version "4.0.11"
@@ -2281,6 +2267,11 @@ Lockfile:
     resolved "http://npm.zhaogangren.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
     integrity sha1-dHIq8y6WFOnCh6jQu95IteLxomM=
   
+  split-on-first@^1.0.0:
+    version "1.1.0"
+    resolved "http://npm.zhaogangren.com/split-on-first/-/split-on-first-1.1.0.tgz#f610afeee3b12bce1d0c30425e76398b78249a5f"
+    integrity sha1-9hCv7uOxK84dDDBCXnY5i3gkml8=
+  
   split-string@^3.0.1, split-string@^3.0.2:
     version "3.1.0"
     resolved "http://npm.zhaogangren.com/split-string/-/split-string-3.1.0.tgz#7cb09dda3a86585705c64b39a6466038682e8fe2"
@@ -2306,6 +2297,11 @@ Lockfile:
     resolved "http://npm.zhaogangren.com/strict-uri-encode/-/strict-uri-encode-1.1.0.tgz#279b225df1d582b1f54e65addd4352e18faa0713"
     integrity sha1-J5siXfHVgrH1TmWt3UNS4Y+qBxM=
   
+  strict-uri-encode@^2.0.0:
+    version "2.0.0"
+    resolved "http://npm.zhaogangren.com/strict-uri-encode/-/strict-uri-encode-2.0.0.tgz#b9c7330c7042862f6b142dc274bbcc5866ce3546"
+    integrity sha1-ucczDHBChi9rFC3CdLvMWGbONUY=
+  
   string-convert@^0.2.0:
     version "0.2.1"
     resolved "http://npm.zhaogangren.com/string-convert/-/string-convert-0.2.1.tgz#6982cc3049fbb4cd85f8b24568b9d9bf39eeff97"
@@ -2325,22 +2321,6 @@ Lockfile:
     dependencies:
       ansi-regex "^2.0.0"
   
-  styled-components@^5.3.1:
-    version "5.3.1"
-    resolved "http://npm.zhaogangren.com/styled-components/-/styled-components-5.3.1.tgz#8a86dcd31bff7049c2ed408bae36fa23f03f071a"
-    integrity sha1-iobc0xv/cEnC7UCLrjb6I/A/Bxo=
-    dependencies:
-      "@babel/helper-module-imports" "^7.0.0"
-      "@babel/traverse" "^7.4.5"
-      "@emotion/is-prop-valid" "^0.8.8"
-      "@emotion/stylis" "^0.8.4"
-      "@emotion/unitless" "^0.7.4"
-      babel-plugin-styled-components ">= 1.12.0"
-      css-to-react-native "^3.0.0"
-      hoist-non-react-statics "^3.0.0"
-      shallowequal "^1.1.0"
-      supports-color "^5.5.0"
-  
   supports-color@^2.0.0:
     version "2.0.0"
     resolved "http://npm.zhaogangren.com/supports-color/-/supports-color-2.0.0.tgz#535d045ce6b6363fa40117084629995e9df324c7"
@@ -2353,7 +2333,7 @@ Lockfile:
     dependencies:
       has-flag "^1.0.0"
   
-  supports-color@^5.3.0, supports-color@^5.5.0:
+  supports-color@^5.3.0:
     version "5.5.0"
     resolved "http://npm.zhaogangren.com/supports-color/-/supports-color-5.5.0.tgz#e2e69a44ac8772f78a1ec0b35b689df6530efc8f"
     integrity sha1-4uaaRKyHcveKHsCzW2id9lMO/I8=

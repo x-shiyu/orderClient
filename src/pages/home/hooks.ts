@@ -1,5 +1,6 @@
 import { usePersistFn } from 'ahooks'
 import { useState } from 'react'
+import { useParams } from 'react-router-dom'
 export const createHander = (): { useData: any } => {
     let _data: any[] = []
     let bindCom: any[] = []
@@ -21,3 +22,7 @@ export const createHander = (): { useData: any } => {
 }
 
 
+export function getActiveId() {
+    const { id } = useParams<{ id: any }>()
+    return [id]
+}

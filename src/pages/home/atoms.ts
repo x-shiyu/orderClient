@@ -1,6 +1,5 @@
 import { atom, selector, selectorFamily } from 'recoil'
-
-
+import { getActiveId } from './hooks'
 export const addOrderInfo = atom<Record<string, any>>({
     key: 'addOrderInfo',
     default: {}
@@ -27,5 +26,14 @@ export const selectedCoffeNum = selector<any>({
         const allSelected = get(addOrderInfo)
         return Object.values(allSelected).reduce<number>((total: number, current: any) => total + current, 0) || 0
     },
-
 })
+
+
+export const activeBusiness = selector<any>({
+    key: 'activeBusiness',
+    get({ get }) {
+        const allSelected = get(addOrderInfo)
+        return Object.values(allSelected).reduce<number>((total: number, current: any) => total + current, 0) || 0
+    },
+})
+

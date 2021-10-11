@@ -10,7 +10,7 @@ function AppChild() {
     <div className='app'>
       <Router>
         <Switch>
-          <Route path='/'>
+          <Route path=''>
             <BaseLayout />
           </Route>
           <Route path='/register' exact>
