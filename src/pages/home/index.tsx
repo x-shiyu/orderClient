@@ -6,6 +6,8 @@ import { getBusiness, BusinessInfo } from './service'
 import { Pagination } from "antd";
 import { Route, useHistory } from 'react-router-dom'
 import GoodsList from "./GoodsList";
+import { allBusiness } from "./atoms";
+import { useRecoilState } from "recoil";
 const PAGESIZE = 10
 
 function BusinessList({ list, activeBus }: { list: BusinessInfo[], activeBus: number }) {
@@ -29,10 +31,11 @@ function BusinessList({ list, activeBus }: { list: BusinessInfo[], activeBus: nu
 
 
 export default function Home() {
-    const [business, setBusiness] = useState<BusinessInfo[]>([])
+    const [business, setBusiness] = useRecoilState<BusinessInfo[]>(allBusiness)
     const [current, setCurrent] = useState<number>(1)
     const [total, setTotal] = useState<number>(0)
     const [activeBus, setActiveBus] = useState<number>(-1)
+
 
 
     const handleSearch = async (current: number) => {
@@ -59,7 +62,7 @@ export default function Home() {
                     }} />
                 </div>
             </div>
-            <div className={style.goodsBox}>
+            <div className={style.goodsBox} id='content_box'>
                 <DetailHeader title='商品' />
                 <Route path='/business/:id' >
                     <GoodsList setActiveBus={setActiveBus} />

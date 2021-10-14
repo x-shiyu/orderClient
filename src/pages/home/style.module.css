@@ -87,3 +87,19 @@
   background-color: #111;
   width: 100%;
 }
+
+
+.modal_list{
+  margin-top: 20px;
+}
+.modal_list>li{
+  display: flex;
+  position:relative;
+  padding: 10px 20px;
+}
+.modal_list>li>span{
+  position: absolute;
+  right: 20px;
+  font-size: 14px;
+  color: goldenrod;
+}

@@ -1,5 +1,5 @@
 Arguments: 
-  D:\nodev14\node.exe C:\Users\yu.shi1\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add @ahooksjs/use-url-state
+  D:\nodev14\node.exe C:\Users\yu.shi1\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add vite-plugin-mock -D
 
 PATH: 
   C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;D:\nodev14\;D:\Git\cmd;D:\nodev14;E:\mysql-8.0.25-winx64\bin;D:\mingw64\bin;E:\TortoiseGit\bin;D:\Python3_9;D:\sqlite3;D:\miniconda;D:\miniconda\Library\mingw-w64\bin;D:\miniconda\Library\usr\bin;D:\miniconda\Library\bin;D:\miniconda\Scripts;C:\Users\yu.shi1\AppData\Local\Microsoft\WindowsApps;C:\Users\yu.shi1\AppData\Roaming\npm;D:\Microsoft VS Code\bin
@@ -14,17 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: http://npm.zhaogangren.com/@ahooksjs%2fuse-url-state/-/use-url-state-2.5.10.tgz: Request failed "500 Internal Server Error"
-      at ResponseError.ExtendableBuiltin (C:\Users\yu.shi1\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:696:66)
-      at new ResponseError (C:\Users\yu.shi1\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:802:124)
-      at Request.<anonymous> (C:\Users\yu.shi1\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:67058:16)
-      at Request.emit (events.js:376:20)
-      at Request.module.exports.Request.onRequestResponse (C:\Users\yu.shi1\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141539:10)
-      at ClientRequest.emit (events.js:376:20)
-      at HTTPParser.parserOnIncomingClient (_http_client.js:647:27)
-      at HTTPParser.parserOnHeadersComplete (_http_common.js:126:17)
-      at Socket.socketOnData (_http_client.js:515:22)
-      at Socket.emit (events.js:376:20)
+  Error: EPERM: operation not permitted, unlink 'E:\learn\coffeClient\node_modules\esbuild\esbuild.exe'
 
 npm manifest: 
   {
@@ -42,6 +32,8 @@ npm manifest:
       "@types/react-router-dom": "^5.1.8",
       "ahooks": "^2.10.9",
       "antd": "^4.16.13",
+      "axios": "^0.23.0",
+      "dayjs": "^1.10.7",
       "mockjs": "^1.1.0",
       "react": "^17.0.0",
       "react-dom": "^17.0.0",
@@ -567,6 +559,13 @@ Lockfile:
     resolved "http://npm.zhaogangren.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
     integrity sha1-bZUX654DDSQ2ZmZR6GvZ9vE1M8k=
   
+  axios@^0.23.0:
+    version "0.23.0"
+    resolved "http://npm.zhaogangren.com/axios/-/axios-0.23.0.tgz#b0fa5d0948a8d1d75e3d5635238b6c4625b05149"
+    integrity sha1-sPpdCUio0ddePVY1I4tsRiWwUUk=
+    dependencies:
+      follow-redirects "^1.14.4"
+  
   base@^0.11.1:
     version "0.11.2"
     resolved "http://npm.zhaogangren.com/base/-/base-0.11.2.tgz#7bde5ced145b6d551a90db87f83c558b4eb48a8f"
@@ -795,7 +794,7 @@ Lockfile:
     resolved "http://npm.zhaogangren.com/date-fns/-/date-fns-2.23.0.tgz#4e886c941659af0cf7b30fafdd1eaa37e88788a9"
     integrity sha1-TohslBZZrwz3sw+v3R6qN+iHiKk=
   
-  dayjs@1.x:
+  dayjs@1.x, dayjs@^1.10.7:
     version "1.10.7"
     resolved "http://npm.zhaogangren.com/dayjs/-/dayjs-1.10.7.tgz#2cf5f91add28116748440866a0a1d26f3a6ce468"
     integrity sha1-LPX5Gt0oEWdIRAhmoKHSbzps5Gg=
@@ -1010,6 +1009,11 @@ Lockfile:
     version "1.1.0"
     resolved "http://npm.zhaogangren.com/filter-obj/-/filter-obj-1.1.0.tgz#9b311112bc6c6127a16e016c6c5d7f19e0805c5b"
     integrity sha1-mzERErxsYSehbgFsbF1/GeCAXFs=
+  
+  follow-redirects@^1.14.4:
+    version "1.14.4"
+    resolved "http://npm.zhaogangren.com/follow-redirects/-/follow-redirects-1.14.4.tgz#838fdf48a8bbdd79e52ee51fb1c94e3ed98b9379"
+    integrity sha1-g4/fSKi73XnlLuUfsclOPtmLk3k=
   
   for-in@^1.0.2:
     version "1.0.2"

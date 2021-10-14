@@ -1,5 +1,6 @@
 import { atom, selector, selectorFamily } from 'recoil'
-import { getActiveId } from './hooks'
+import { BusinessInfo } from './service'
+
 export const addOrderInfo = atom<Record<string, any>>({
     key: 'addOrderInfo',
     default: {}
@@ -37,3 +38,8 @@ export const activeBusiness = selector<any>({
     },
 })
 
+
+export const allBusiness = atom<BusinessInfo[]>({
+    key: 'all-business',
+    default: []
+})

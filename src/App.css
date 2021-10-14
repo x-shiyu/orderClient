@@ -228,3 +228,7 @@ ul {
 .pointer {
   cursor: pointer;
 }
+
+.txc{
+  text-align: center;
+}

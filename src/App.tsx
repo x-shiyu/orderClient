@@ -4,7 +4,6 @@ import BaseLayout from './layout/BaseLayout';
 import { RecoilRoot, useRecoilState } from 'recoil';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css'
-
 function AppChild() {
   return (
     <div className='app'>

@@ -2,6 +2,8 @@ import { defineConfig } from 'vite'
 import reactRefresh from '@vitejs/plugin-react-refresh'
 import viteSvgIcons from 'vite-plugin-svg-icons';
 import path from 'path';
+import { viteMockServe } from 'vite-plugin-mock'
+
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -10,10 +12,16 @@ export default defineConfig({
     iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
     // 指定symbolId格式
     symbolId: 'icon-[dir]-[name]',
-  }),],
+  }), viteMockServe({
+    mockPath: 'mock',
+    localEnabled: true,
+  })],
   server: {
     port: 8001,
-    host: '0.0.0.0'
+    host: '0.0.0.0',
+    fs: {
+      strict: false
+    }
   },
   css: {
     modules: {
