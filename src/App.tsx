@@ -1,32 +1,36 @@
-import React, { useState } from 'react'
-import Register from './pages/register';
+import React from 'react'
 import BaseLayout from './layout/BaseLayout';
-import { RecoilRoot, useRecoilState } from 'recoil';
+import { RecoilRoot } from 'recoil';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Auth from './pages/auth';
+
 import './App.css'
+
 function AppChild() {
   return (
     <div className='app'>
       <Router>
         <Switch>
-          <Route path=''>
-            <BaseLayout />
-          </Route>
           <Route path='/register' exact>
-            <Register />
+            <Auth />
           </Route>
           <Route path='/login' exact>
-            <Register />
+            <Auth />
           </Route>
+          <Route path='/'>
+            <BaseLayout />
+          </Route>
+
         </Switch>
       </Router>
-
     </div>
   )
 }
 
 export default function App() {
-  return <RecoilRoot>
-    <AppChild />
-  </RecoilRoot>
+  return (
+    <RecoilRoot>
+      <AppChild />
+    </RecoilRoot>
+  )
 }

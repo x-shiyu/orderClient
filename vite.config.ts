@@ -13,7 +13,7 @@ export default defineConfig({
     // 指定symbolId格式
     symbolId: 'icon-[dir]-[name]',
   }), viteMockServe({
-    mockPath: 'mock',
+    mockPath: './src/mock',
     localEnabled: true,
   })],
   server: {

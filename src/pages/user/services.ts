@@ -1,10 +1,12 @@
-import { mock, Random } from "mockjs";
+import request from '@/request'
 
-export function updateUserInfo(params: { pwd: string, oldPwd: string }): Promise<{ data: { code: number } }> {
-    return Promise.resolve({
-        data: {
-            code: 200
-        }
-    })
+// 更新用户信息
+export function updateUserInfo(params: any): Promise<{ data: string }> {
+    return request.put('/api/user/password', params)
+}
+
+// 获取用户信息
+export function getUserInfo() {
+    return request.get('/user/info')
 }
 

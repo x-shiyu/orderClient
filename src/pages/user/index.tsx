@@ -90,15 +90,6 @@ export default function User() {
     return (
         <div className='bgc444 cddd pt20' style={{ width: "100%" }} >
             <h1 className='cddd txc'>账户信息</h1>
-            <div>
-                <Button onClick={() => {
-                    request.get('/business').then((result) => {
-                        debugger
-                    }).catch((err) => {
-                        debugger
-                    });
-                }}>click</Button>
-            </div>
             <ul>
                 <li className='txc pt10'>邮箱：{info.email}</li>
                 <li className='txc pt10'>Vip等级：{info.vip_level}</li>

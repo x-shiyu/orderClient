@@ -15,15 +15,15 @@ function Order({ data }: { data: CoffeOrder }) {
                             <p>{data.name}</p>
                             <span>创建日期：{formatDate(data.createTime)}</span>
                             <p className={style.discount_box}>
-                                {data.discount?.map(item => (
-                                    <span key={item.minus + item.full}>{item.full}减{item.minus}</span>
+                                {data.discount?.map((item, index) => (
+                                    <span key={index}>{item.full}减{item.minus}</span>
                                 ))}
                             </p>
                         </section>
                     </div>
                     <ul className={style.order_detail_list}>
                         {data.goodsList.map((good) => (
-                            <li >
+                            <li key={good.name}>
                                 <img src={good.thumb} alt="" width='60' height='60' />
                                 <p>{good.name}</p>
                             </li>
@@ -39,8 +39,8 @@ function Order({ data }: { data: CoffeOrder }) {
 export default function OrderedList() {
     const [list, setList] = useState<CoffeOrder[]>([])
     useMount(() => {
-        getOrders().then(({ data }) => {
-            setList(data)
+        getOrders().then(({ list }) => {
+            setList(list)
         })
     })
 

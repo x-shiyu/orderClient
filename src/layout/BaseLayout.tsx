@@ -7,7 +7,21 @@ import style from './baselayout.module.css'
 import { CoffeeOutlined, BarsOutlined, SettingOutlined } from '@ant-design/icons'
 import { useActiveTab } from "../pages/hooks";
 import coffeIcon from '@/assets/images/coffee.png'
+import { useRecoilState } from "recoil";
+import { authInfo } from "@/recoil";
+import { useMount } from "ahooks";
+import request from '@/request'
 export default function BaseLayout() {
+
+    const [userInfo, setUserInfo] = useRecoilState(authInfo)
+
+    useMount(() => {
+        if (!userInfo.email) {
+            request.get('/user/info').then((response) => {
+                setUserInfo(response.data)
+            })
+        }
+    })
     const activeKey = useActiveTab('coffe')
     const history = useHistory()
     const sideItems = [{
@@ -53,7 +67,7 @@ export default function BaseLayout() {
                 <Route path='/user' exact>
                     <User />
                 </Route>
-                <Route path=''>
+                <Route path='/'>
                     <Home />
                 </Route>
             </Switch>
