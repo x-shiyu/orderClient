@@ -6,7 +6,7 @@ export interface BusinessInfo {
     monthSell: number,
     desc: string,
     id: number,
-    discount?: {
+    promotion?: {
         full: number
         minus: number
     }[]
@@ -16,24 +16,22 @@ export interface BusinessInfo {
 
 
 export interface CoffeOrderInfo {
-    categoryName: string,
-    categoryId: number,
+    category_name: string,
+    category: number,
     name: string,
-    monthSell: number,
+    month_sell: number,
     price: number,
     thumb: string,
     id: number
-    canUsePoints: number
-    discount?: {
-        full: number
-        minus: number
-    }[]
+    abstract_money: number
+    discount?: number,
+    description:string
 }
 
 
 // 获取所有商家
-export function getBusiness(current = 1, keywords?: string, pageSize = 10): Promise<{ data: { total: number, list: BusinessInfo[] } }> {
-    return request.get('/business', {
+export function getBusiness(current = 1, keywords?: string, pageSize = 10): Promise< BusinessInfo[]> {
+    return request.get('/user/shop/', {
         params: {
             pageNo: current,
             pageSize,
@@ -43,8 +41,8 @@ export function getBusiness(current = 1, keywords?: string, pageSize = 10): Prom
 }
 
 // 获取商家的所有商品
-export function getCoffes(id: number): Promise<{ data: CoffeOrderInfo[] }> {
-    return request.get('/business/coffe', {
+export function getCoffes(id: number): Promise<CoffeOrderInfo[]> {
+    return request.get('/shop/goods', {
         params: {
             id
         }
@@ -52,8 +50,6 @@ export function getCoffes(id: number): Promise<{ data: CoffeOrderInfo[] }> {
 }
 
 // 提交订单
-export function submuitOrder(selected: any): Promise<any> {
-    return request.post('/order', {
-        selected
-    })
+export function submuitOrder(orderInfo: any): Promise<any> {
+    return request.post('/order/list/',orderInfo)
 }

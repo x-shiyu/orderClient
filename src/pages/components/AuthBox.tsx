@@ -27,7 +27,7 @@ export function AuthBox({ form, isLogin }: { form: FormInstance<any>; isLogin: b
             </Form.Item>
             <Form.Item
                 {...formItemLayout}
-                name="pwd"
+                name="password"
                 label="密码"
                 rules={[
                     {
@@ -50,7 +50,7 @@ export function AuthBox({ form, isLogin }: { form: FormInstance<any>; isLogin: b
                     },
                     ({ getFieldValue }) => ({
                         validator(_, value) {
-                            if (!value || getFieldValue('pwd') === value) {
+                            if (!value || getFieldValue('password') === value) {
                                 return Promise.resolve();
                             }
                             return Promise.reject(new Error('密码不相等'));

@@ -15,10 +15,10 @@ function CoffeOrder({ data }: { data: FormattedCoffeInfo }) {
         const [addOrder, setAddOrder] = useRecoilState(addOrderAction(item.id))
         return (
             <li className={style.orderItem} key={item.id}>
-                <img src={item.thumb} width='60' height='60' />
+                <img src={`/api/file/fetch?id=${item.thumb}`} width='60' height='60' />
                 <section>
                     <h4 className='f14 cbbb'>{item.name}</h4>
-                    <p>月售{item.monthSell}</p>
+                    <p>月售：{item.month_sell}</p>
                     <p>价格：￥{item.price.toFixed(2)}</p>
                 </section>
                 <div style={{ position: 'absolute', right: 5, width: 80 }}>
@@ -28,8 +28,8 @@ function CoffeOrder({ data }: { data: FormattedCoffeInfo }) {
         )
     }
     return (
-        <div id={data.categoryId as any} className='pt20'>
-            <h2 className='ceee' >{data.categoryName}</h2>
+        <div id={data.category as any} className='pt20'>
+            <h2 className='ceee' >{data.category_name}</h2>
             <ul>
                 {data.children.map(item => {
                     return (
@@ -49,7 +49,7 @@ export default function GoodsList({ setActiveBus }: { setActiveBus: any }) {
         setActiveBus(id)
         if (id !== -1) {
             getCoffes(id).then((response) => {
-                setCoffeList(response.data)
+                setCoffeList(response)
             })
         }
     }, [id])
@@ -60,12 +60,12 @@ export default function GoodsList({ setActiveBus }: { setActiveBus: any }) {
             <div>
                 <div className='fx-between' style={{ width: 600, margin: '0 auto' }}>
                     <ul style={{ marginTop: 40 }}>
-                        {coffeListFormatted.map(item => (<li className='pt10' key={item.categoryId}>
-                            <a href={'#' + item.categoryId}> {item.categoryName}</a>
+                        {coffeListFormatted.map(item => (<li className='pt10' key={item.category}>
+                            <a href={'#' + item.category}> {item.category_name}</a>
                         </li>))}
                     </ul>
                     <div className={style.orderBox}>
-                        {coffeListFormatted.map(item => <CoffeOrder key={item.categoryId} data={item} />)}
+                        {coffeListFormatted.map(item => <CoffeOrder key={item.category} data={item} />)}
                     </div>
                 </div>
             </div>
