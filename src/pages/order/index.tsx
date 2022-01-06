@@ -10,7 +10,7 @@ function Order({ data }: { data: CoffeOrder }) {
                 <li>
                     <span>{data.status}</span>
                     <div className={style.order_item_head}>
-                        <img src={data.thumb} alt="" width='80' height='80' />
+                        <img src={`/api/file/fetch?id=${data.thumb}`} alt="" width='80' height='80' />
                         <section>
                             <p>{data.name}</p>
                             <span>创建日期：{formatDate(data.createTime)}</span>
@@ -24,7 +24,7 @@ function Order({ data }: { data: CoffeOrder }) {
                     <ul className={style.order_detail_list}>
                         {data.goodsList.map((good) => (
                             <li key={good.name}>
-                                <img src={good.thumb} alt="" width='60' height='60' />
+                                <img src={`/api/file/fetch?id=${good.thumb}`} alt="" width='60' height='60' />
                                 <p>{good.name}</p>
                             </li>
                         ))}
@@ -35,12 +35,20 @@ function Order({ data }: { data: CoffeOrder }) {
     )
 }
 
-
+const statusMapName:any={
+  1:'待接单',
+  2:'进行中',
+  3:'已完成'
+}
 export default function OrderedList() {
     const [list, setList] = useState<CoffeOrder[]>([])
     useMount(() => {
-        getOrders().then(({ list }) => {
-            setList(list)
+        getOrders().then((list:any[]) => {
+
+            setList(list.map(item=>({
+              ...item,
+              status:statusMapName[item.status]
+            })))
         })
     })
 

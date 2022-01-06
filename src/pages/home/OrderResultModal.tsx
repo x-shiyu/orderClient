@@ -89,13 +89,17 @@ export function OrderResultModal({
     )
   },[businessList])
 
+  // 总付款
+  const totalPay = useMemo(()=>{
+    return selectedGoods.reduce(
+      (total, current) => total + current.price,
+      0
+    )
+  },[selectedGoods])
+
   // 满减的
   const discountInfo = useMemo(() => {
     if (visible) {
-      const totalPay = selectedGoods.reduce(
-        (total, current) => total + current.price,
-        0
-      )
       if (activeBusDiscount && activeBusDiscount.promotion) {
         return getMaxDiscount(activeBusDiscount.promotion, totalPay)
       }
@@ -106,10 +110,6 @@ export function OrderResultModal({
   // 实付的
   const realPay = useMemo(() => {
     if (visible) {
-      const totalPay = selectedGoods.reduce(
-        (total, current) => total + current.price,
-        0
-      )
       if (discountInfo) {
         if (checked) {
           return totalPay - canUseMoney - discountInfo.min
@@ -129,7 +129,8 @@ export function OrderResultModal({
       goods:addGoodsInfo,
       shop_id:activeBusDiscount?.id,
       real_pay:realPay,
-      promotion_id:discountInfo?.id
+      promotion_id:discountInfo?.id,
+      totalPay
     }
     submuitOrder(orderForm).then(() => {
       message.success('下单成功！')

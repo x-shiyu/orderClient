@@ -13,7 +13,7 @@ export interface ICoffeItem {
     thumb: string
     name: string
 }
-export function getOrders(): Promise<{ list: CoffeOrder[] }> {
-    return request.get('/order')
+export function getOrders(): Promise<CoffeOrder[]> {
+    return request.get('/order/list')
 }
 
