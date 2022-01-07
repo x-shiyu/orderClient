@@ -20,6 +20,7 @@ function CoffeOrder({ data }: { data: FormattedCoffeInfo }) {
                     <h4 className='f14 cbbb'>{item.name}</h4>
                     <p>月售：{item.month_sell}</p>
                     <p>价格：￥{item.price.toFixed(2)}</p>
+                    {item.discount<100&&<p>折扣：{item.discount} 折</p>}
                 </section>
                 <div style={{ position: 'absolute', right: 5, width: 80 }}>
                     <AddAndMin current={addOrder} setCurrent={setAddOrder} />

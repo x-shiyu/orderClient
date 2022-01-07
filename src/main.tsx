@@ -5,8 +5,6 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 import App from './App'
 import 'virtual:svg-icons-register';
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <App />,
   document.getElementById('root')
 )

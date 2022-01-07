@@ -92,7 +92,7 @@ export function OrderResultModal({
   // 总付款
   const totalPay = useMemo(()=>{
     return selectedGoods.reduce(
-      (total, current) => total + current.price,
+      (total, current) => total + current.price/100*current.discount,
       0
     )
   },[selectedGoods])

@@ -4,6 +4,7 @@ import { authInfo } from '../../recoil'
 import { useRecoilState } from 'recoil'
 import { updateUserInfo } from './services'
 import request from '@/request'
+import { useHistory } from 'react-router'
 
 function PasswordForm({ setVisible }: { setVisible: any }) {
   const [userInfo, setUserInfo] = useRecoilState(authInfo)
@@ -29,6 +30,7 @@ function PasswordForm({ setVisible }: { setVisible: any }) {
       setVisible(false)
     })
   }
+
   return (
     <Form form={form} name="dynamic_rule">
       <Form.Item
@@ -89,6 +91,15 @@ function PasswordForm({ setVisible }: { setVisible: any }) {
 export default function User() {
   const [info] = useRecoilState(authInfo)
   const [visible, setVisible] = useState<boolean>(false)
+  const history = useHistory()
+  const logout = ()=>{
+    request.post('/auth/logout/').then(()=>{
+      message.success('退出成功')
+      setTimeout(()=>{
+        history.push('/login')
+      })
+    })
+  }
   return (
     <div className="bgc444 cddd pt20" style={{ width: '100%' }}>
       <h1 className="cddd txc">账户信息</h1>
@@ -102,6 +113,12 @@ export default function User() {
           }}
         >
           <Button type="primary">修改密码</Button>
+        </li>
+        <li
+          className="txc pt10"
+          onClick={logout}
+        >
+          <Button type="primary">退出登录</Button>
         </li>
       </ul>
       <Drawer
